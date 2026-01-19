@@ -1,0 +1,99 @@
+
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.session-status {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.vortex-canvas {
+  width: 100%;
+  height: 500px;
+  background: #0a0a0f;
+  border-radius: 12px;
+  border: 2px solid #8b5cf6;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.vortex-game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: #ef4444;
+  padding: 32px;
+  border-radius: 12px;
+  text-align: center;
+  z-index: 20;
+  border: 2px solid #ef4444;
+  box-shadow: 0 0 30px #ef4444;
+}
+
+.vortex-over-text {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px #ef4444;
+}
+
+.vortex-final-score {
+  font-size: 1.5rem;
+  color: #fbbf24;
+  text-shadow: 0 0 10px #fbbf24;
+}
+
+.vortex-controls {
+  margin-bottom: 16px;
+}
+
+.vortex-button {
+  background: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.2s;
+  width: 100%;
+  max-width: 300px;
+}
+
+.vortex-button:hover {
+  background: #7c3aed;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.2s;
+  font-weight: 500;
+  width: 100%;
+  max-width: 300px;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+}

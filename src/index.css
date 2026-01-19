@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --performance-mode: medium;
+}
+
+[data-performance-mode="low"] {
+  --animation-duration: 0s;
+  --transition-duration: 0s;
+}
+
+[data-performance-mode="medium"] {
+  --animation-duration: 0.3s;
+  --transition-duration: 0.2s;
+}
+
+[data-performance-mode="high"] {
+  --animation-duration: 0.5s;
+  --transition-duration: 0.3s;
+}
+
+[data-performance-mode="low"] * {
+  animation-duration: 0s !important;
+  transition-duration: 0s !important;
+}
+
+[data-performance-mode="low"] *::before,
+[data-performance-mode="low"] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+:root {
+  --arcade-bg: #0a0a0f;
+  --arcade-surface: #1a1a24;
+  --arcade-surface-elevated: #252532;
+  --arcade-text: #e8e8f0;
+  --arcade-text-muted: #a0a0b0;
+  
+  --accent-arcade: #a855f7;
+  --accent-reflex: #00f5ff;
+  --accent-logic: #00ff88;
+  --accent-calm: #14b8a6;
+  --accent-classic: #fbbf24;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--arcade-bg);
+  color: var(--arcade-text);
+  line-height: 1.5;
+}
+
+#root {
+  min-height: 100vh;
+}

@@ -1,0 +1,120 @@
+
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.session-status {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.orbit-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 24px;
+  background: #0a0a0f;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.orbit-svg {
+  width: 100%;
+  height: 400px;
+}
+
+.orbit-player {
+  filter: drop-shadow(0 0 10px #fbbf24);
+  animation: orbit-glow 1s infinite;
+}
+
+@keyframes orbit-glow {
+  0%, 100% { filter: drop-shadow(0 0 10px #fbbf24); }
+  50% { filter: drop-shadow(0 0 20px #fbbf24); }
+}
+
+.orbit-game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 32px;
+  border-radius: 12px;
+  text-align: center;
+  z-index: 20;
+}
+
+.orbit-over-text {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.orbit-final-score {
+  font-size: 1.5rem;
+  color: #fbbf24;
+}
+
+.orbit-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.orbit-button {
+  flex: 1;
+  padding: 12px 20px;
+  border: 3px solid;
+  border-radius: 8px;
+  background: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  max-width: 120px;
+}
+
+.orbit-button:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.orbit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.orbit-button.active {
+  background: currentColor;
+  color: white;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.2s;
+  font-weight: 500;
+  width: 100%;
+  max-width: 300px;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+}

@@ -1,0 +1,89 @@
+
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.session-status {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.crystal-grid {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 2px solid #8b5cf6;
+}
+
+.crystal-shard {
+  position: absolute;
+  transform-origin: center;
+  cursor: pointer;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.crystal-shard:hover {
+  transform: scale(1.1) rotate(var(--angle, 0deg));
+}
+
+.crystal-shard.aligned {
+  animation: crystal-pulse 1s infinite;
+}
+
+@keyframes crystal-pulse {
+  0%, 100% { filter: drop-shadow(0 0 20px #10b981); }
+  50% { filter: drop-shadow(0 0 30px #10b981); }
+}
+
+.crystal-shape {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  border: 2px solid #c4b5fd;
+}
+
+.crystal-complete {
+  text-align: center;
+  padding: 24px;
+  background: #d1fae5;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.final-score {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #065f46;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.2s;
+  font-weight: 500;
+  width: 100%;
+  max-width: 300px;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+}

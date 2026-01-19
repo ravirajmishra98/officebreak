@@ -1,0 +1,138 @@
+
+.story-section {
+  margin-bottom: 32px;
+  padding: 24px;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.story-starter {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+}
+
+.story-input {
+  width: 100%;
+  padding: 16px;
+  font-size: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  resize: vertical;
+  font-family: inherit;
+  margin-bottom: 16px;
+  transition: border-color 0.2s;
+}
+
+.story-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.story-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.save-button,
+.new-button {
+  flex: 1;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: none;
+}
+
+.save-button {
+  background: #3b82f6;
+  color: white;
+}
+
+.save-button:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.save-button:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+}
+
+.new-button {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+.new-button:hover {
+  background: #d1d5db;
+}
+
+.saved-stories {
+  padding: 24px;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.stories-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.stories-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.clear-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.clear-button:hover {
+  background: #dc2626;
+}
+
+.story-item {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border-left: 4px solid #10b981;
+}
+
+.story-complete {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.story-part {
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+.story-part.user {
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.story-date {
+  font-size: 0.875rem;
+  color: #6b7280;
+}

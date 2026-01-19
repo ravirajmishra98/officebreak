@@ -1,0 +1,160 @@
+
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.session-status {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.sequence-display {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 32px;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.sequence-prompt {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 24px;
+}
+
+.sequence-numbers {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.sequence-item {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3b82f6;
+  padding: 12px 20px;
+  background: white;
+  border: 2px solid #3b82f6;
+  border-radius: 8px;
+  min-width: 60px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.option-button {
+  padding: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: white;
+  border: 3px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #1f2937;
+}
+
+.option-button:hover:not(:disabled) {
+  border-color: #3b82f6;
+  transform: scale(1.05);
+}
+
+.option-button:disabled {
+  cursor: not-allowed;
+}
+
+.option-button.correct {
+  background: #d1fae5;
+  border-color: #10b981;
+  color: #065f46;
+}
+
+.option-button.incorrect {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+.result-feedback {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.result-feedback.correct {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.result-feedback.incorrect {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.session-complete {
+  text-align: center;
+  padding: 32px;
+  background: #f9fafb;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.final-score {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.final-percentage {
+  font-size: 1.5rem;
+  color: #3b82f6;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.perfect-score {
+  font-size: 1.25rem;
+  color: #10b981;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.2s;
+  font-weight: 500;
+  width: 100%;
+  max-width: 300px;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+}

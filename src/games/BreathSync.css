@@ -1,0 +1,74 @@
+
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.session-status {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.breath-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  margin-bottom: 24px;
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 40px;
+}
+
+.breath-circle {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+}
+
+.breath-instruction {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.completion-message {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #10b981;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #d1fae5;
+  border-radius: 8px;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.2s;
+  font-weight: 500;
+  width: 100%;
+  max-width: 300px;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+}

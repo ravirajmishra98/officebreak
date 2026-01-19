@@ -1,0 +1,163 @@
+
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.session-status {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.guess-stats {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1f2937;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.guess-message {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #f9fafb;
+  color: #1f2937;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+}
+
+.guess-message.success {
+  background: #d1fae5;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.guess-message.failure {
+  background: #fee2e2;
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.guess-history {
+  margin-bottom: 24px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.guess-history-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.guess-history-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.guess-history-item {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.guess-history-item.too-low {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.guess-history-item.too-high {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.guess-history-item.correct {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.guess-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.guess-input {
+  padding: 12px;
+  font-size: 1.1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.guess-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.guess-input:disabled {
+  background: #f3f4f6;
+  cursor: not-allowed;
+}
+
+.guess-submit {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-weight: 500;
+}
+
+.guess-submit:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.guess-submit:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.2s;
+  font-weight: 500;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+}

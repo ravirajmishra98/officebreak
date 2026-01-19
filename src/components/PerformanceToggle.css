@@ -1,0 +1,64 @@
+.performance-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: var(--arcade-surface-elevated);
+  border-radius: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.performance-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--arcade-text-muted);
+  white-space: nowrap;
+}
+
+.performance-buttons {
+  display: flex;
+  gap: 4px;
+  background: var(--arcade-surface);
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.perf-button {
+  padding: 6px 12px;
+  border: none;
+  background: transparent;
+  color: var(--arcade-text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all var(--transition-duration);
+}
+
+.perf-button:hover {
+  background: rgba(168, 85, 247, 0.15);
+  color: var(--accent-arcade);
+}
+
+.perf-button.active {
+  background: var(--accent-arcade);
+  color: var(--arcade-bg);
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.4);
+}
+
+@media (max-width: 768px) {
+  .performance-toggle {
+    padding: 6px 12px;
+    gap: 8px;
+  }
+
+  .performance-label {
+    font-size: 0.75rem;
+  }
+
+  .perf-button {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+}

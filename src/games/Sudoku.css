@@ -1,0 +1,155 @@
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.session-status {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.sudoku-grid {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 450px;
+  margin: 0 auto;
+  border: 3px solid #1f2937;
+  flex-shrink: 0;
+}
+
+.sudoku-row {
+  display: flex;
+}
+
+.sudoku-cell {
+  width: 45px;
+  height: 45px;
+  border: 1px solid #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: white;
+  transition: all 0.2s;
+}
+
+.sudoku-cell.even-section {
+  background: #f3f4f6;
+}
+
+.sudoku-cell.selected {
+  background: #dbeafe;
+  border: 2px solid #3b82f6;
+}
+
+.sudoku-cell.initial {
+  background: #e5e7eb;
+  color: #1f2937;
+  font-weight: 700;
+  cursor: default;
+}
+
+.sudoku-cell:hover:not(.initial) {
+  background: #e0e7ff;
+}
+
+.number-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  max-width: 200px;
+  margin: 20px auto;
+  flex-shrink: 0;
+}
+
+.number-button {
+  width: 60px;
+  height: 60px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.number-button:hover:not(:disabled) {
+  background: #2563eb;
+  transform: scale(1.1);
+}
+
+.number-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.game-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hint-button {
+  padding: 10px 24px;
+  background: #f59e0b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.hint-button:hover:not(:disabled) {
+  background: #d97706;
+}
+
+.hint-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.2);
+}
+
+.restart-button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+@media (max-width: 768px) {
+  .sudoku-cell {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .number-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}

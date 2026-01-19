@@ -1,0 +1,293 @@
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--arcade-text-muted);
+  font-weight: 500;
+  flex-shrink: 0;
+  padding: 12px 20px;
+  background: var(--arcade-surface);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.session-status {
+  color: var(--accent-logic);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.dice-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+  flex-shrink: 0;
+}
+
+.dice {
+  width: 100px;
+  height: 100px;
+  background: var(--arcade-surface-elevated);
+  border: 3px solid var(--accent-arcade);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--arcade-text);
+  cursor: pointer;
+  transition: all var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.dice::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+}
+
+.dice:hover::before {
+  width: 120px;
+  height: 120px;
+}
+
+.dice:hover {
+  transform: scale(1.1) rotate(5deg);
+  border-color: var(--accent-reflex);
+  box-shadow: 0 8px 32px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.2);
+}
+
+.roll-button {
+  padding: 12px 32px;
+  background: linear-gradient(135deg, var(--accent-arcade), #9333ea);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.3);
+  min-width: 160px;
+}
+
+.roll-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #9333ea, #7e22ce);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.2);
+}
+
+.roll-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.roll-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--arcade-surface);
+  color: var(--arcade-text-muted);
+}
+
+.snakes-board-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  flex-shrink: 0;
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.3), 0 8px 32px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 8px;
+  background: var(--arcade-surface);
+}
+
+.snakes-board {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: #ffffff;
+  border: 4px solid #8b4513;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+
+.board-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.board-row {
+  display: flex;
+  width: 100%;
+  height: 10%;
+}
+
+.board-cell {
+  flex: 1;
+  aspect-ratio: 1;
+  background: #fefefe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 0.75rem;
+  border: 1px solid #e5e5e5;
+  transition: background-color 0.2s;
+}
+
+.board-cell.snake {
+  background: #fee2e2;
+}
+
+.board-cell.ladder {
+  background: #dcfce7;
+}
+
+.cell-number {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 0.65rem;
+  color: #666;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.player-token {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  position: relative;
+  animation: tokenPulse 2s ease-in-out infinite;
+}
+
+@keyframes tokenPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.players-status {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin-top: 24px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--arcade-text);
+  padding: 12px 20px;
+  background: var(--arcade-surface-elevated);
+  border-radius: 12px;
+  border: 2px solid rgba(168, 85, 247, 0.2);
+  transition: all var(--transition-duration);
+}
+
+.player-info:hover {
+  border-color: var(--accent-arcade);
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.3);
+}
+
+.player-color {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--arcade-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.restart-button {
+  background: linear-gradient(135deg, var(--accent-arcade), #9333ea);
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-block;
+  margin: 24px auto 0;
+  transition: all var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  flex-shrink: 0;
+  width: auto;
+  min-width: 160px;
+  height: auto;
+  line-height: 1.4;
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.3);
+}
+
+.restart-button:hover {
+  background: linear-gradient(135deg, #9333ea, #7e22ce);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.2);
+}
+
+.restart-button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .dice {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+
+  .snakes-board-container {
+    max-width: 100%;
+  }
+
+  .board-cell {
+    font-size: 0.65rem;
+  }
+
+  .cell-number {
+    font-size: 0.6rem;
+  }
+
+  .player-token {
+    width: 24px;
+    height: 24px;
+  }
+
+  .players-status {
+    gap: 16px;
+  }
+
+  .player-info {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+}

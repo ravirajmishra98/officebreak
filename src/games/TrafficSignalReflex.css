@@ -1,0 +1,129 @@
+
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.traffic-signal {
+  width: 120px;
+  height: 300px;
+  background: #1f2937;
+  border-radius: 12px;
+  margin: 0 auto 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  border: 4px solid #374151;
+}
+
+.traffic-signal.wrong {
+  border-color: #ef4444;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.signal-light {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #374151;
+  border: 3px solid #4b5563;
+  transition: all 0.3s;
+}
+
+.signal-light.red.active {
+  background: #ef4444;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
+}
+
+.signal-light.yellow.active {
+  background: #fbbf24;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+}
+
+.signal-light.green.active {
+  background: #10b981;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+}
+
+.signal-instruction {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #10b981;
+  white-space: nowrap;
+}
+
+.signal-feedback {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.signal-feedback.correct {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.signal-feedback.wrong {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.2s;
+  font-weight: 500;
+  width: 100%;
+  max-width: 300px;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+}
+
+@media (max-width: 480px) {
+  .traffic-signal {
+    width: 100px;
+    height: 250px;
+  }
+
+  .signal-light {
+    width: 60px;
+    height: 60px;
+  }
+}

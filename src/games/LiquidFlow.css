@@ -1,0 +1,78 @@
+
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.session-status {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.liquid-canvas {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  flex: 1;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+  border-radius: 12px;
+  cursor: crosshair;
+  border: 2px solid #3b82f6;
+  display: block;
+}
+
+.liquid-game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: #10b981;
+  padding: 32px;
+  border-radius: 12px;
+  text-align: center;
+  z-index: 20;
+  border: 2px solid #10b981;
+  box-shadow: 0 0 30px #10b981;
+}
+
+.liquid-over-text {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px #10b981;
+}
+
+.liquid-final-score {
+  font-size: 1.5rem;
+  color: #fbbf24;
+  text-shadow: 0 0 10px #fbbf24;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.2s;
+  font-weight: 500;
+  width: auto;
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+}

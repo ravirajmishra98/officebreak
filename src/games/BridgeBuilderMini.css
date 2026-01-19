@@ -1,0 +1,167 @@
+
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.session-status {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.bridge-scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 24px;
+  padding: 40px;
+  background: linear-gradient(to bottom, #87ceeb 0%, #4682b4 100%);
+  border-radius: 12px;
+  min-height: 200px;
+}
+
+.bridge-left,
+.bridge-right {
+  background: #8b4513;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  min-width: 80px;
+  text-align: center;
+  border: 3px solid #654321;
+}
+
+.bridge-gap {
+  flex: 1;
+  height: 100px;
+  background: #4682b4;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.bridge {
+  height: 20px;
+  background: linear-gradient(to right, #8b4513, #a0522d);
+  border-top: 3px solid #654321;
+  transition: width 0.1s linear;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.bridge-crosser {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  transition: left 0.3s linear;
+  z-index: 10;
+}
+
+.bridge-instruction {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.bridge-feedback {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.bridge-feedback.success {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.bridge-feedback.failed {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.bridge-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto 20px;
+  transition: background 0.2s;
+  width: 100%;
+  max-width: 300px;
+}
+
+.bridge-button:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.bridge-button:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+}
+
+.bridge-button:active:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.game-complete {
+  text-align: center;
+  padding: 32px;
+  background: #d1fae5;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.final-score {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #065f46;
+  margin-bottom: 12px;
+}
+
+.complete-message {
+  font-size: 1.25rem;
+  color: #059669;
+  font-weight: 500;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.2s;
+  font-weight: 500;
+  width: 100%;
+  max-width: 300px;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+}

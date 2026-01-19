@@ -1,0 +1,155 @@
+
+.session-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.timer-warning {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ef4444;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.session-status {
+  color: #10b981;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.challenge-start {
+  text-align: center;
+  padding: 60px;
+  background: #f9fafb;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.start-message {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 32px;
+}
+
+.start-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.start-button:hover {
+  background: #2563eb;
+}
+
+.challenge-display {
+  padding: 32px;
+  background: #f9fafb;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.challenge-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 24px;
+  line-height: 1.6;
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+}
+
+.challenge-input {
+  width: 100%;
+  padding: 16px;
+  font-size: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  min-height: 150px;
+}
+
+.challenge-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.response-display {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #10b981;
+}
+
+.response-label {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.response-text {
+  font-size: 1rem;
+  color: #1f2937;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.complete-button {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto 16px;
+  transition: background 0.2s;
+}
+
+.complete-button:hover {
+  background: #059669;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.2s;
+  font-weight: 500;
+  width: 100%;
+  max-width: 300px;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+}

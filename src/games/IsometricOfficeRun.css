@@ -1,0 +1,140 @@
+
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.session-status {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.office-run-track {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(to bottom, #1f2937 0%, #374151 50%, #1f2937 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 3px solid #4b5563;
+  perspective: 1000px;
+}
+
+.run-lanes {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.run-lane {
+  position: absolute;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  border-left: 2px dashed rgba(107, 114, 128, 0.3);
+  border-right: 2px dashed rgba(107, 114, 128, 0.3);
+  transform: rotateX(60deg) scaleY(0.5);
+  transform-origin: top;
+}
+
+.run-obstacle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  z-index: 5;
+  animation: run-fall linear;
+}
+
+.run-player {
+  position: absolute;
+  bottom: 30px;
+  transform: translateX(-50%) rotateX(60deg) scaleY(0.5);
+  font-size: 3rem;
+  z-index: 10;
+  transition: left 0.2s ease-out;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.run-game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 32px;
+  border-radius: 12px;
+  text-align: center;
+  z-index: 20;
+}
+
+.run-over-text {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.run-final-score {
+  font-size: 1.5rem;
+  color: #fbbf24;
+}
+
+.run-controls {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.lane-button {
+  flex: 1;
+  max-width: 200px;
+  padding: 14px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.lane-button:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.lane-button:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.2s;
+  font-weight: 500;
+  width: 100%;
+  max-width: 300px;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+}

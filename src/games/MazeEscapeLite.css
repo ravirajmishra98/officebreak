@@ -1,0 +1,118 @@
+
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.session-status {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.maze-container {
+  display: inline-block;
+  border: 3px solid #1f2937;
+  border-radius: 8px;
+  padding: 4px;
+  background: #1f2937;
+  margin-bottom: 24px;
+}
+
+.maze-row {
+  display: flex;
+}
+
+.maze-cell {
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+}
+
+.maze-cell.wall {
+  background: #1f2937;
+}
+
+.maze-cell.path {
+  background: #f9fafb;
+}
+
+.maze-cell.player {
+  background: #3b82f6;
+  border-radius: 50%;
+  position: relative;
+}
+
+.maze-cell.player::after {
+  content: '👤';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+
+.maze-cell.exit {
+  background: #10b981;
+  position: relative;
+}
+
+.maze-cell.exit::after {
+  content: '🚪';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+
+.maze-victory {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(16, 185, 129, 0.95);
+  color: white;
+  padding: 32px;
+  border-radius: 12px;
+  text-align: center;
+  z-index: 20;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.victory-text {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.victory-time {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.2s;
+  font-weight: 500;
+  width: 100%;
+  max-width: 300px;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+}

@@ -1,0 +1,128 @@
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.session-status {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.connect-four-board {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 500px;
+  margin: 0 auto;
+  background: #1e40af;
+  padding: 12px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.column-headers {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.drop-button {
+  flex: 1;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.2s;
+}
+
+.drop-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.drop-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.board-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.board-row:last-child {
+  margin-bottom: 0;
+}
+
+.board-cell {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.disc {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.disc.player {
+  background: #3b82f6;
+}
+
+.disc.computer {
+  background: #ef4444;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: inline-block;
+  margin: 16px auto 0;
+  transition: all 0.2s;
+  font-weight: 500;
+  flex-shrink: 0;
+  width: auto;
+  min-width: 140px;
+  height: auto;
+  line-height: 1.4;
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.2);
+}
+
+.restart-button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+@media (max-width: 768px) {
+  .board-cell {
+    width: 40px;
+    height: 40px;
+  }
+
+  .disc {
+    width: 32px;
+    height: 32px;
+  }
+}

@@ -1,0 +1,170 @@
+.game-rules {
+  background: rgba(26, 26, 36, 0.6);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 12px;
+  margin-bottom: 28px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  animation: rulesSlideIn 0.5s ease-out;
+  transition: all var(--transition-duration);
+  backdrop-filter: blur(10px);
+}
+
+@keyframes rulesSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.game-rules:hover {
+  border-color: var(--accent-arcade);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
+}
+
+.game-rules-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(37, 37, 50, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-duration);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--arcade-text);
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.game-rules-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-arcade), var(--accent-reflex));
+  transform: scaleX(0);
+  transition: transform var(--transition-duration);
+}
+
+.game-rules-header:hover::after {
+  transform: scaleX(1);
+}
+
+.game-rules-header:hover {
+  background: rgba(37, 37, 50, 0.7);
+  padding-left: 24px;
+}
+
+.game-rules-title {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.game-rules-title::before {
+  content: '📋';
+  font-size: 1.1rem;
+  transition: transform var(--transition-duration);
+}
+
+.game-rules-header:hover .game-rules-title::before {
+  transform: rotate(15deg) scale(1.1);
+}
+
+.game-rules-toggle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--arcade-text-muted);
+  width: 28px;
+  text-align: center;
+  transition: all var(--transition-duration) cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.game-rules-header:hover .game-rules-toggle {
+  color: var(--accent-arcade);
+  transform: scale(1.2);
+}
+
+.game-rules-content {
+  padding: 20px;
+  border-top: 1px solid rgba(168, 85, 247, 0.15);
+  animation: contentFadeIn 0.4s ease-out;
+  background: rgba(26, 26, 36, 0.4);
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+.game-rules-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.game-rules-list li {
+  padding: 10px 0;
+  padding-left: 32px;
+  position: relative;
+  color: var(--arcade-text-muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  animation: listItemFadeIn 0.4s ease-out backwards;
+  transition: all 0.2s;
+}
+
+.game-rules-list li:nth-child(1) { animation-delay: 0.05s; }
+.game-rules-list li:nth-child(2) { animation-delay: 0.1s; }
+.game-rules-list li:nth-child(3) { animation-delay: 0.15s; }
+.game-rules-list li:nth-child(4) { animation-delay: 0.2s; }
+.game-rules-list li:nth-child(5) { animation-delay: 0.25s; }
+.game-rules-list li:nth-child(n+6) { animation-delay: 0.3s; }
+
+@keyframes listItemFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.game-rules-list li:hover {
+  color: var(--arcade-text);
+  padding-left: 36px;
+}
+
+.game-rules-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 12px;
+  color: var(--accent-arcade);
+  font-weight: bold;
+  font-size: 0.8rem;
+  transition: all var(--transition-duration);
+}
+
+.game-rules-list li:hover::before {
+  transform: translateX(4px);
+  color: var(--accent-reflex);
+}

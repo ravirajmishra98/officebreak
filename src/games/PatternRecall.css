@@ -1,0 +1,128 @@
+
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pattern-instruction {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 400px;
+  margin: 0 auto 24px;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.pattern-cell {
+  aspect-ratio: 1;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pattern-cell:hover:not(:disabled) {
+  background: #f3f4f6;
+  border-color: #3b82f6;
+}
+
+.pattern-cell:disabled {
+  cursor: not-allowed;
+}
+
+.pattern-cell.pattern-highlight {
+  background: #3b82f6;
+  border-color: #2563eb;
+  animation: flash 0.3s;
+}
+
+.pattern-cell.selected {
+  background: #10b981;
+  border-color: #059669;
+}
+
+.pattern-cell.correct {
+  background: #d1fae5;
+  border-color: #10b981;
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.session-complete {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 32px;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.final-message {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.final-score {
+  font-size: 1.25rem;
+  color: #3b82f6;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.final-time {
+  font-size: 1rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.restart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.2s;
+  font-weight: 500;
+  width: 100%;
+  max-width: 300px;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+}
+
+@media (max-width: 480px) {
+  .pattern-grid {
+    max-width: 320px;
+    gap: 8px;
+  }
+}

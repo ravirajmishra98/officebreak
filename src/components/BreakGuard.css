@@ -1,0 +1,86 @@
+.break-guard-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+  backdrop-filter: blur(4px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.break-guard-modal {
+  background: var(--arcade-surface-elevated);
+  border: 2px solid var(--accent-arcade);
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 40px rgba(168, 85, 247, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.break-guard-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.break-guard-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--arcade-text);
+  margin-bottom: 12px;
+}
+
+.break-guard-message {
+  font-size: 0.95rem;
+  color: var(--arcade-text-muted);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.break-guard-button {
+  background: linear-gradient(135deg, var(--accent-arcade), #9333ea);
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-duration);
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.3);
+}
+
+.break-guard-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.5);
+}
+
+.break-guard-button:active {
+  transform: translateY(0);
+}
