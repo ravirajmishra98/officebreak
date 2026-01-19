@@ -5,6 +5,7 @@ const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN
 async function getBlobData(filename) {
   try {
     if (!BLOB_TOKEN) {
+      console.log(`No BLOB_TOKEN, returning default data for ${filename}`)
       return getDefaultData(filename)
     }
 
@@ -13,16 +14,28 @@ async function getBlobData(filename) {
       prefix: `analytics/${filename}`
     })
     
+    console.log(`Found ${blobs.length} blobs for ${filename}`)
+    
     if (blobs.length > 0) {
-      const response = await fetch(blobs[0].url)
+      // Sort by uploadedAt to get the most recent
+      const sortedBlobs = blobs.sort((a, b) => 
+        new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
+      )
+      
+      console.log(`Fetching most recent blob: ${sortedBlobs[0].pathname}`)
+      const response = await fetch(sortedBlobs[0].url)
       if (response.ok) {
-        return await response.json()
+        const data = await response.json()
+        console.log(`Successfully loaded ${filename}:`, JSON.stringify(data).substring(0, 100))
+        return data
+      } else {
+        console.error(`Failed to fetch blob ${filename}: ${response.status}`)
       }
+    } else {
+      console.log(`No blobs found for ${filename}, using default`)
     }
   } catch (error) {
-    if (error?.statusCode !== 404) {
-      console.error(`Error reading ${filename}:`, error)
-    }
+    console.error(`Error reading ${filename}:`, error)
   }
   return getDefaultData(filename)
 }
@@ -154,7 +167,10 @@ export default async function handler(req, res) {
       const result = await handleAnalyticsEvent(req.body)
       return res.status(200).json(result)
     } else if (req.method === 'GET') {
+      console.log('=== GET /api/analytics called ===')
+      console.log('BLOB_TOKEN present:', !!BLOB_TOKEN)
       const data = await getAnalyticsData()
+      console.log('Returning data:', JSON.stringify(data, null, 2))
       return res.status(200).json(data)
     } else {
       return res.status(405).json({ error: 'Method not allowed' })
