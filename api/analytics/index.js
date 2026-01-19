@@ -1,5 +1,8 @@
 import { put, list } from '@vercel/blob'
 
+// Tell Vercel to run this as an Edge Function so fetch/Response work as written
+export const config = { runtime: 'edge' }
+
 const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN
 
 async function getBlobData(filename) {
