@@ -131,28 +131,31 @@ async function handleAnalyticsEvent(event) {
 }
 
 async function getAnalyticsData() {
+  const debug = {
+    timestamp: new Date().toISOString(),
+    blobTokenSet: !!BLOB_TOKEN
+  }
+  
   try {
-    console.log('getAnalyticsData: Starting...')
-    console.log('BLOB_TOKEN exists:', !!BLOB_TOKEN)
+    console.log('getAnalyticsData: Starting...', debug)
     
-    // Add debug info
-    const debugInfo = {
-      blobTokenExists: !!BLOB_TOKEN,
-      blobsFound: {}
-    }
-    
-    // Check what blobs exist
-    if (BLOB_TOKEN) {
-      try {
-        const allBlobs = await list({ token: BLOB_TOKEN, prefix: 'analytics/' })
-        console.log('All blobs found:', allBlobs.blobs.length)
-        debugInfo.totalBlobs = allBlobs.blobs.length
-        debugInfo.blobNames = allBlobs.blobs.map(b => b.pathname)
-      } catch (e) {
-        console.error('Error listing all blobs:', e)
-        debugInfo.listError = e.message
+    if (!BLOB_TOKEN) {
+      console.log('No BLOB_TOKEN set - returning default data')
+      return {
+        visits: getDefaultData('visits.json'),
+        games: getDefaultData('games.json'),
+        sessions: getDefaultData('sessions.json'),
+        performanceMode: getDefaultData('performance.json'),
+        _debug: { ...debug, status: 'NO_BLOB_TOKEN' }
       }
     }
+    
+    // List all blobs to see what's there
+    console.log('Listing blobs with prefix analytics/')
+    const listResult = await list({ token: BLOB_TOKEN, prefix: 'analytics/' })
+    debug.blobsFound = listResult.blobs.length
+    debug.blobNames = listResult.blobs.map(b => b.pathname)
+    console.log('Blobs found:', debug)
     
     const [visits, games, sessions, performance] = await Promise.all([
       getBlobData('visits.json'),
@@ -161,16 +164,25 @@ async function getAnalyticsData() {
       getBlobData('performance.json')
     ])
 
+    debug.status = 'SUCCESS'
     return {
       visits,
       games,
       sessions,
       performanceMode: performance,
-      _debug: debugInfo
+      _debug: debug
     }
   } catch (error) {
     console.error('Error fetching analytics:', error)
-    throw error
+    debug.status = 'ERROR'
+    debug.error = error.message
+    return {
+      visits: getDefaultData('visits.json'),
+      games: getDefaultData('games.json'),
+      sessions: getDefaultData('sessions.json'),
+      performanceMode: getDefaultData('performance.json'),
+      _debug: debug
+    }
   }
 }
 
