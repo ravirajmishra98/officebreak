@@ -11,7 +11,7 @@ function Footer() {
         <div className="footer-info">
           <span className="footer-version">v1.0</span>
           <span className="footer-separator">•</span>
-          <a href="mailto:feedback@officebreakgames.com" className="footer-link">
+          <a href="mailto:ravirajmishra98@gmail.com" className="footer-link">
             Feedback
           </a>
         </div>
