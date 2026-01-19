@@ -5,7 +5,6 @@ const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN
 async function getBlobData(filename) {
   try {
     if (!BLOB_TOKEN) {
-      console.log(`No BLOB_TOKEN, returning default data for ${filename}`)
       return getDefaultData(filename)
     }
 
@@ -14,25 +13,16 @@ async function getBlobData(filename) {
       prefix: `analytics/${filename}`
     })
     
-    console.log(`Found ${blobs.length} blobs for ${filename}`)
-    
     if (blobs.length > 0) {
       // Sort by uploadedAt to get the most recent
       const sortedBlobs = blobs.sort((a, b) => 
         new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
       )
       
-      console.log(`Fetching most recent blob: ${sortedBlobs[0].pathname}`)
       const response = await fetch(sortedBlobs[0].url)
       if (response.ok) {
-        const data = await response.json()
-        console.log(`Successfully loaded ${filename}:`, JSON.stringify(data).substring(0, 100))
-        return data
-      } else {
-        console.error(`Failed to fetch blob ${filename}: ${response.status}`)
+        return await response.json()
       }
-    } else {
-      console.log(`No blobs found for ${filename}, using default`)
     }
   } catch (error) {
     console.error(`Error reading ${filename}:`, error)
@@ -47,14 +37,12 @@ async function putBlobData(filename, data) {
       return
     }
 
-    console.log(`Writing blob: analytics/${filename}`)
     await put(`analytics/${filename}`, JSON.stringify(data, null, 2), {
       access: 'public',
       token: BLOB_TOKEN,
       contentType: 'application/json',
-      addRandomSuffix: false  // Important: don't create new versions, overwrite
+      addRandomSuffix: false
     })
-    console.log(`Successfully wrote: analytics/${filename}`)
   } catch (error) {
     console.error(`Error writing ${filename}:`, error)
     throw error
@@ -134,32 +122,7 @@ async function handleAnalyticsEvent(event) {
 }
 
 async function getAnalyticsData() {
-  const debug = {
-    timestamp: new Date().toISOString(),
-    blobTokenSet: !!BLOB_TOKEN
-  }
-  
   try {
-    console.log('getAnalyticsData: Starting...', debug)
-    
-    if (!BLOB_TOKEN) {
-      console.log('No BLOB_TOKEN set - returning default data')
-      return {
-        visits: getDefaultData('visits.json'),
-        games: getDefaultData('games.json'),
-        sessions: getDefaultData('sessions.json'),
-        performanceMode: getDefaultData('performance.json'),
-        _debug: { ...debug, status: 'NO_BLOB_TOKEN' }
-      }
-    }
-    
-    // List all blobs to see what's there
-    console.log('Listing blobs with prefix analytics/')
-    const listResult = await list({ token: BLOB_TOKEN, prefix: 'analytics/' })
-    debug.blobsFound = listResult.blobs.length
-    debug.blobNames = listResult.blobs.map(b => b.pathname)
-    console.log('Blobs found:', debug)
-    
     const [visits, games, sessions, performance] = await Promise.all([
       getBlobData('visits.json'),
       getBlobData('games.json'),
@@ -167,24 +130,19 @@ async function getAnalyticsData() {
       getBlobData('performance.json')
     ])
 
-    debug.status = 'SUCCESS'
     return {
       visits,
       games,
       sessions,
-      performanceMode: performance,
-      _debug: debug
+      performanceMode: performance
     }
   } catch (error) {
     console.error('Error fetching analytics:', error)
-    debug.status = 'ERROR'
-    debug.error = error.message
     return {
       visits: getDefaultData('visits.json'),
       games: getDefaultData('games.json'),
       sessions: getDefaultData('sessions.json'),
-      performanceMode: getDefaultData('performance.json'),
-      _debug: debug
+      performanceMode: getDefaultData('performance.json')
     }
   }
 }
