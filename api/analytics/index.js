@@ -132,6 +132,28 @@ async function handleAnalyticsEvent(event) {
 
 async function getAnalyticsData() {
   try {
+    console.log('getAnalyticsData: Starting...')
+    console.log('BLOB_TOKEN exists:', !!BLOB_TOKEN)
+    
+    // Add debug info
+    const debugInfo = {
+      blobTokenExists: !!BLOB_TOKEN,
+      blobsFound: {}
+    }
+    
+    // Check what blobs exist
+    if (BLOB_TOKEN) {
+      try {
+        const allBlobs = await list({ token: BLOB_TOKEN, prefix: 'analytics/' })
+        console.log('All blobs found:', allBlobs.blobs.length)
+        debugInfo.totalBlobs = allBlobs.blobs.length
+        debugInfo.blobNames = allBlobs.blobs.map(b => b.pathname)
+      } catch (e) {
+        console.error('Error listing all blobs:', e)
+        debugInfo.listError = e.message
+      }
+    }
+    
     const [visits, games, sessions, performance] = await Promise.all([
       getBlobData('visits.json'),
       getBlobData('games.json'),
@@ -143,7 +165,8 @@ async function getAnalyticsData() {
       visits,
       games,
       sessions,
-      performanceMode: performance
+      performanceMode: performance,
+      _debug: debugInfo
     }
   } catch (error) {
     console.error('Error fetching analytics:', error)

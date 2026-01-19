@@ -79,6 +79,7 @@ function AdminAnalytics() {
   const gamesData = data.games || {}
   const sessions = data.sessions || {}
   const performanceMode = data.performanceMode || {}
+  const debugInfo = data._debug || null
 
   const sortedGames = Object.entries(gamesData)
     .sort(([, a], [, b]) => (b.opens || 0) - (a.opens || 0))
@@ -181,6 +182,15 @@ function AdminAnalytics() {
               ))}
           </div>
         </div>
+
+        {debugInfo && (
+          <div className="admin-section" style={{ marginTop: '2rem', fontSize: '0.9rem', opacity: 0.7 }}>
+            <h2>Debug Info</h2>
+            <pre style={{ background: '#1a1a2e', padding: '1rem', borderRadius: '8px', overflow: 'auto' }}>
+              {JSON.stringify(debugInfo, null, 2)}
+            </pre>
+          </div>
+        )}
       </div>
     </Layout>
   )
