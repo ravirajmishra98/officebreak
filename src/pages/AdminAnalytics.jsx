@@ -28,6 +28,7 @@ function AdminAnalytics() {
         return res.json()
       })
       .then(data => {
+        console.log('📊 Analytics data received:', data)
         if (data.error) {
           throw new Error(data.error)
         }
@@ -93,6 +94,28 @@ function AdminAnalytics() {
     <Layout>
       <div className="admin-analytics">
         <h1 className="admin-title">Analytics Dashboard</h1>
+        
+        {debugInfo && (
+          <div style={{ 
+            marginBottom: '2rem', 
+            padding: '1rem', 
+            background: '#ff000020', 
+            border: '2px solid #ff0000',
+            borderRadius: '8px' 
+          }}>
+            <h3 style={{ color: '#ff5555', marginBottom: '0.5rem' }}>🔍 Debug Info</h3>
+            <pre style={{ 
+              background: '#1a1a2e', 
+              padding: '1rem', 
+              borderRadius: '8px', 
+              overflow: 'auto',
+              fontSize: '0.85rem',
+              color: '#fff'
+            }}>
+              {JSON.stringify(debugInfo, null, 2)}
+            </pre>
+          </div>
+        )}
         
         <div className="admin-grid">
           <div className="admin-card">
@@ -182,15 +205,6 @@ function AdminAnalytics() {
               ))}
           </div>
         </div>
-
-        {debugInfo && (
-          <div className="admin-section" style={{ marginTop: '2rem', fontSize: '0.9rem', opacity: 0.7 }}>
-            <h2>Debug Info</h2>
-            <pre style={{ background: '#1a1a2e', padding: '1rem', borderRadius: '8px', overflow: 'auto' }}>
-              {JSON.stringify(debugInfo, null, 2)}
-            </pre>
-          </div>
-        )}
       </div>
     </Layout>
   )
