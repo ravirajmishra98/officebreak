@@ -1,5 +1,9 @@
 import { put, list } from '@vercel/blob'
 
+export const config = {
+  runtime: 'edge'
+}
+
 const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN
 
 async function getBlobData(filename) {
@@ -139,18 +143,37 @@ async function getAnalyticsData() {
 }
 
 export default async function handler(request) {
+  const headers = {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type'
+  }
+
+  // Handle OPTIONS preflight request
+  if (request.method === 'OPTIONS') {
+    return new Response(null, { status: 200, headers })
+  }
+
   try {
     if (request.method === 'POST') {
       const body = await request.json()
       const result = await handleAnalyticsEvent(body)
-      return Response.json(result, { status: 200 })
+      return new Response(JSON.stringify(result), { status: 200, headers })
     } else if (request.method === 'GET') {
       const data = await getAnalyticsData()
-      return Response.json(data, { status: 200 })
+      return new Response(JSON.stringify(data), { status: 200, headers })
     } else {
-      return Response.json({ error: 'Method not allowed' }, { status: 405 })
+      return new Response(
+        JSON.stringify({ error: 'Method not allowed' }), 
+        { status: 405, headers }
+      )
     }
   } catch (error) {
-    return Response.json({ success: false, error: error.message }, { status: 500 })
+    console.error('Analytics API error:', error)
+    return new Response(
+      JSON.stringify({ success: false, error: error.message, stack: error.stack }), 
+      { status: 500, headers }
+    )
   }
 }

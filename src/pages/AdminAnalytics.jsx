@@ -21,12 +21,21 @@ function AdminAnalytics() {
     }
 
     fetch('/api/analytics')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}: ${res.statusText}`)
+        }
+        return res.json()
+      })
       .then(data => {
+        if (data.error) {
+          throw new Error(data.error)
+        }
         setData(data)
         setLoading(false)
       })
       .catch(err => {
+        console.error('Analytics fetch error:', err)
         setError(err.message)
         setLoading(false)
       })
