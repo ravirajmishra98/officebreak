@@ -47,11 +47,14 @@ async function putBlobData(filename, data) {
       return
     }
 
+    console.log(`Writing blob: analytics/${filename}`)
     await put(`analytics/${filename}`, JSON.stringify(data, null, 2), {
       access: 'public',
       token: BLOB_TOKEN,
-      contentType: 'application/json'
+      contentType: 'application/json',
+      addRandomSuffix: false  // Important: don't create new versions, overwrite
     })
+    console.log(`Successfully wrote: analytics/${filename}`)
   } catch (error) {
     console.error(`Error writing ${filename}:`, error)
     throw error
