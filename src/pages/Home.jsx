@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 import GameCard from '../components/GameCard'
 import EnhancedSearch from '../components/EnhancedSearch'
 import FeaturedGames from '../components/FeaturedGames'
@@ -92,6 +93,13 @@ function Home() {
   return (
     <Layout>
       <div className="home-content">
+        <SEO />
+        <header className="home-hero">
+          <h1>Office Break Games</h1>
+          <p>Quick, fun browser games designed for short breaks. Reset your focus, reduce stress, and get back to your tasks in just a few minutes.</p>
+          <p>Built for busy professionals, students, and anyone who needs a fast mental refresh. Our 5-minute games are lightweight, distraction-free, and playable on any device without sign-up.</p>
+          <p>Short bursts of play can boost mood and concentration. Pick a game, unwind for a moment, and return sharper.</p>
+        </header>
         <section className="games-section">
           <h2 className="section-title">Choose Your Break Game</h2>
           

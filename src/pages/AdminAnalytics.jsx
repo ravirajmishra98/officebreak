@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import Layout from '../components/Layout'
 import './AdminAnalytics.css'
+import SEO from '../components/SEO'
 
 const ADMIN_KEY = import.meta.env.VITE_ADMIN_ANALYTICS_KEY || ''
 
@@ -53,6 +54,7 @@ function AdminAnalytics() {
   if (loading) {
     return (
       <Layout>
+        <SEO title="Admin – Analytics" description="Admin panel" noindex />
         <div className="admin-loading">Loading analytics...</div>
       </Layout>
     )
@@ -61,6 +63,7 @@ function AdminAnalytics() {
   if (error) {
     return (
       <Layout>
+        <SEO title="Admin – Analytics" description="Admin panel" noindex />
         <div className="admin-error">Error: {error}</div>
       </Layout>
     )
@@ -90,6 +93,7 @@ function AdminAnalytics() {
 
   return (
     <Layout>
+      <SEO title="Admin – Analytics" description="Admin panel" noindex />
       <div className="admin-analytics">
         <h1 className="admin-title">Analytics Dashboard</h1>
         
